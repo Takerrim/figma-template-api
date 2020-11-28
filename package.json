@@ -1,0 +1,20 @@
+{
+  "name": "figma-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "module-alias": "^2.2.2",
+    "node-fetch": "^2.6.1"
+  },
+  "_moduleAliases": {
+    "@": "src"
+  }
+}
