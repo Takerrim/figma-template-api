@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
-const { writeFile, mkdir } = require('fs').promises
-const path = require('path')
+// const { writeFile, mkdir } = require('fs').promises
+// const path = require('path')
 const normalize = require('./normalizeConfig')
 
 async function getFile (key) {
@@ -15,8 +15,10 @@ async function getFile (key) {
 
   normalize(config)
 
-  await mkdir(path.resolve(__dirname, `../../dist/projects/${key}`), { recursive: true })
-  await writeFile(path.resolve(__dirname, `../../dist/projects/${key}/config.json`), JSON.stringify(config, null, 2))
+  return config
+
+  // await mkdir(path.resolve(__dirname, `../../dist/projects/${key}`), { recursive: true })
+  // await writeFile(path.resolve(__dirname, `../../dist/projects/${key}/config.json`), JSON.stringify(config, null, 2))
 }
 
 module.exports = getFile
