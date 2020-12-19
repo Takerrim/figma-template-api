@@ -1,3 +1,5 @@
+const { NODE_TYPES } = require('@/constants')
+
 const toWebRgba = ({ r, g, b, a }) => ({
   r: Math.floor(r * 255),
   g: Math.floor(g * 255),
@@ -8,6 +10,10 @@ const toWebRgba = ({ r, g, b, a }) => ({
 module.exports = function normalize(node) {
   if (node.fills) {
     node.fills[0].color = toWebRgba(node.fills[0].color)
+  }
+
+  if (node.type === NODE_TYPES.PAGE) {
+    node.children[0].type = 'ROOT_FRAME'
   }
 
   if (node.backgroundColor) {
